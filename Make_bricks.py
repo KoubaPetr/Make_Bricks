@@ -13,11 +13,11 @@ print(achievability(3,6,21))
 # if I have bricks of size 1 in the amount "small" and bricks of size 5 in the amount "big" can I compose the line?
 
 def limited_storage_achievability(small, big, n):
-    if small < 0 or big < 0:
+    if (small < 0 or n < 0):
         return False
     elif n/5 <= big and n%5 <= small:
         return True
-    elif limited_storage_achievability(small-5, big-1, n):
+    elif limited_storage_achievability(small-5, big, n-5):
         return True
     else:
         return False
